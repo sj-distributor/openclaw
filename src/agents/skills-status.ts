@@ -42,6 +42,7 @@ export type SkillStatusEntry = {
   disabled: boolean;
   blockedByAllowlist: boolean;
   eligible: boolean;
+  safe: boolean;
   requirements: Requirements;
   missing: Requirements;
   configChecks: SkillStatusConfigCheck[];
@@ -166,12 +167,22 @@ function normalizeInstallOptions(
   return [toOption(preferred.spec, preferred.index)];
 }
 
+function parseSafeSkills(): Set<string> {
+  const raw = process.env.OPENCLAW_SAFE_SKILLS ?? "";
+  const names = raw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return new Set(names);
+}
+
 function buildSkillStatus(
   entry: SkillEntry,
   config?: OpenClawConfig,
   prefs?: SkillsInstallPreferences,
   eligibility?: SkillEligibilityContext,
   bundledNames?: Set<string>,
+  safeSkills?: Set<string>,
 ): SkillStatusEntry {
   const skillKey = resolveSkillKey(entry);
   const skillConfig = resolveSkillConfig(config, skillKey);
@@ -201,6 +212,7 @@ function buildSkillStatus(
       isConfigSatisfied,
     });
   const eligible = !disabled && !blockedByAllowlist && requirementsSatisfied;
+  const safe = safeSkills ? safeSkills.has(skillKey) || safeSkills.has(entry.skill.name) : false;
 
   return {
     name: entry.skill.name,
@@ -217,6 +229,7 @@ function buildSkillStatus(
     disabled,
     blockedByAllowlist,
     eligible,
+    safe,
     requirements: required,
     missing,
     configChecks,
@@ -243,11 +256,19 @@ export function buildWorkspaceSkillStatus(
       bundledSkillsDir: bundledContext.dir,
     });
   const prefs = resolveSkillsInstallPreferences(opts?.config);
+  const safeSkills = parseSafeSkills();
   return {
     workspaceDir,
     managedSkillsDir,
     skills: skillEntries.map((entry) =>
-      buildSkillStatus(entry, opts?.config, prefs, opts?.eligibility, bundledContext.names),
+      buildSkillStatus(
+        entry,
+        opts?.config,
+        prefs,
+        opts?.eligibility,
+        bundledContext.names,
+        safeSkills,
+      ),
     ),
   };
 }

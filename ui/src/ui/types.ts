@@ -589,6 +589,7 @@ export type SkillStatusEntry = {
   disabled: boolean;
   blockedByAllowlist: boolean;
   eligible: boolean;
+  safe?: boolean;
   requirements: {
     bins: string[];
     env: string[];
