@@ -41,6 +41,13 @@ export function renderSkillStatusChips(params: {
         ${skill.eligible ? "eligible" : "blocked"}
       </span>
       ${
+        skill.safe
+          ? html`
+              <span class="chip chip-ok">✅ Safe & Verified</span>
+            `
+          : nothing
+      }
+      ${
         skill.disabled
           ? html`
               <span class="chip chip-warn">disabled</span>
