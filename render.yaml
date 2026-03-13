@@ -15,6 +15,8 @@ services:
         value: /data/workspace
       - key: OPENCLAW_GATEWAY_TOKEN
         generateValue: true
+      - key: OPENCLAW_SAFE_SKILLS
+        value: "clawhub,github"
     disk:
       name: openclaw-data
       mountPath: /data
