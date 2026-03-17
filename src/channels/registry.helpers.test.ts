@@ -39,4 +39,16 @@ describe("channel registry helpers", () => {
     expect(line).toContain("/channels/telegram");
     expect(line).toContain("https://openclaw.ai");
   });
+
+  it("includes omelink channel in the default list", () => {
+    const channels = listChatChannels();
+    const omelink = channels.find((channel) => channel.id === "omelink");
+    expect(omelink).toBeDefined();
+    expect(omelink?.label).toBe("Omelink");
+    expect(omelink?.selectionLabel).toBe("Omelink");
+  });
+
+  it("normalizes omelink alias 'ome' to omelink", () => {
+    expect(normalizeChatChannelId("ome")).toBe("omelink");
+  });
 });

@@ -39,6 +39,7 @@ export const BUNDLED_ENABLED_BY_DEFAULT = new Set<string>([
   "moonshot",
   "nvidia",
   "ollama",
+  "omelink",
   "openai",
   "opencode",
   "opencode-go",

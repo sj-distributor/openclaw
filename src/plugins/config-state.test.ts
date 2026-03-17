@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  BUNDLED_ENABLED_BY_DEFAULT,
   normalizePluginsConfig,
   resolveEffectiveEnableState,
   resolveEnableState,
@@ -129,6 +130,12 @@ describe("resolveEffectiveEnableState", () => {
       },
     });
     expect(state).toEqual({ enabled: false, reason: "disabled in config" });
+  });
+});
+
+describe("BUNDLED_ENABLED_BY_DEFAULT", () => {
+  it("includes omelink for default enable", () => {
+    expect(BUNDLED_ENABLED_BY_DEFAULT.has("omelink")).toBe(true);
   });
 });
 

@@ -553,6 +553,18 @@ const DOCKS: Record<ChatChannelId, ChannelDock> = {
       resolveToolPolicy: resolveLineGroupToolPolicy,
     },
   },
+  omelink: {
+    id: "omelink",
+    capabilities: {
+      chatTypes: ["direct", "group"],
+      polls: false,
+      threads: true,
+      media: true,
+      reactions: false,
+      edit: false,
+      reply: true,
+    },
+  },
 };
 
 function buildDockFromPlugin(plugin: ChannelPlugin): ChannelDock {
