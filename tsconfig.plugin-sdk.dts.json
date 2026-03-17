@@ -21,6 +21,7 @@
     "src/plugin-sdk/imessage.ts",
     "src/plugin-sdk/whatsapp.ts",
     "src/plugin-sdk/line.ts",
+    "src/plugin-sdk/omelink.ts",
     "src/plugin-sdk/msteams.ts",
     "src/plugin-sdk/account-id.ts",
     "src/plugin-sdk/keyed-async-queue.ts",

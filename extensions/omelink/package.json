@@ -1,0 +1,31 @@
+{
+  "name": "@openclaw/omelink",
+  "version": "2026.3.16",
+  "description": "OpenClaw Omelink channel plugin",
+  "type": "module",
+  "dependencies": {},
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "setupEntry": "./setup-entry.ts",
+    "channel": {
+      "id": "omelink",
+      "label": "Omelink",
+      "selectionLabel": "Omelink",
+      "docsPath": "/channels/omelink",
+      "docsLabel": "omelink",
+      "blurb": "Omelink messaging channel.",
+      "aliases": [
+        "ome"
+      ],
+      "order": 100,
+      "quickstartAllowFrom": true
+    },
+    "install": {
+      "npmSpec": "@openclaw/omelink",
+      "localPath": "extensions/omelink",
+      "defaultChoice": "npm"
+    }
+  }
+}

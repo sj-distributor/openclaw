@@ -14,6 +14,7 @@ export const CHAT_CHANNEL_ORDER = [
   "signal",
   "imessage",
   "line",
+  "omelink",
 ] as const;
 
 export type ChatChannelId = (typeof CHAT_CHANNEL_ORDER)[number];
@@ -118,6 +119,16 @@ const CHAT_CHANNEL_META: Record<ChatChannelId, ChannelMeta> = {
     blurb: "LINE Messaging API webhook bot.",
     systemImage: "message",
   },
+  omelink: {
+    id: "omelink",
+    label: "Omelink",
+    selectionLabel: "Omelink",
+    detailLabel: "Omelink",
+    docsPath: "/channels/omelink",
+    docsLabel: "omelink",
+    blurb: "Omelink messaging channel.",
+    systemImage: "network",
+  },
 };
 
 export const CHAT_CHANNEL_ALIASES: Record<string, ChatChannelId> = {
@@ -125,6 +136,7 @@ export const CHAT_CHANNEL_ALIASES: Record<string, ChatChannelId> = {
   "internet-relay-chat": "irc",
   "google-chat": "googlechat",
   gchat: "googlechat",
+  ome: "omelink",
 };
 
 const normalizeChannelKey = (raw?: string | null): string | undefined => {
