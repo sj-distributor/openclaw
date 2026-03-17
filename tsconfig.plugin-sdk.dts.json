@@ -12,6 +12,7 @@
   },
   "include": [
     "src/plugin-sdk/index.ts",
+    "src/plugin-sdk/omelink.ts",
     "src/plugin-sdk/account-id.ts",
     "src/plugin-sdk/keyed-async-queue.ts",
     "src/types/**/*.d.ts"

@@ -1,0 +1,10 @@
+{
+  "id": "omelink",
+  "channels": ["omelink"],
+  "skills": [],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
