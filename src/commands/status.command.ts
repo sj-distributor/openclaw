@@ -451,7 +451,7 @@ export async function statusCommand(
     },
   ];
 
-  runtime.log(theme.heading("OpenClaw status"));
+  runtime.log(theme.heading("OMEClaw status"));
   runtime.log("");
   runtime.log(theme.heading("Overview"));
   runtime.log(

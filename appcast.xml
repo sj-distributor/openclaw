@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes"?>
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
-        <title>OpenClaw</title>
+        <title>OMEClaw</title>
         <item>
             <title>2026.3.13</title>
             <pubDate>Sat, 14 Mar 2026 05:19:48 +0000</pubDate>
@@ -9,7 +9,7 @@
             <sparkle:version>2026031390</sparkle:version>
             <sparkle:shortVersionString>2026.3.13</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>OpenClaw 2026.3.13</h2>
+            <description><![CDATA[<h2>OMEClaw 2026.3.13</h2>
 <h3>Changes</h3>
 <ul>
 <li>Android/chat settings: redesign the chat settings sheet with grouped device and media sections, refresh the Connect and Voice tabs, and tighten the chat composer/session header for a denser mobile layout. (#44894) Thanks @obviyus.</li>
@@ -76,7 +76,7 @@
 </ul>
 <p><a href="https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md">View full changelog</a></p>
 ]]></description>
-            <enclosure url="https://github.com/openclaw/openclaw/releases/download/v2026.3.13/OpenClaw-2026.3.13.zip" length="23640917" type="application/octet-stream" sparkle:edSignature="Me63UHSpFLocTo5Lt7Iqsl0Hq61y3jTcZ9DUkiFl9xQvTE0+ORuqRMFWqPgYwfaKMgcgQmUbrV/uFzEoTIRHBA=="/>
+            <enclosure url="https://github.com/openclaw/openclaw/releases/download/v2026.3.13/OMEClaw-2026.3.13.zip" length="23640917" type="application/octet-stream" sparkle:edSignature="Me63UHSpFLocTo5Lt7Iqsl0Hq61y3jTcZ9DUkiFl9xQvTE0+ORuqRMFWqPgYwfaKMgcgQmUbrV/uFzEoTIRHBA=="/>
         </item>
         <item>
             <title>2026.3.12</title>
@@ -85,7 +85,7 @@
             <sparkle:version>2026031290</sparkle:version>
             <sparkle:shortVersionString>2026.3.12</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>OpenClaw 2026.3.12</h2>
+            <description><![CDATA[<h2>OMEClaw 2026.3.12</h2>
 <h3>Changes</h3>
 <ul>
 <li>Control UI/dashboard-v2: refresh the gateway dashboard with modular overview, chat, config, agent, and session views, plus a command palette, mobile bottom tabs, and richer chat tools like slash commands, search, export, and pinned messages. (#41503) Thanks @BunsDev.</li>
@@ -115,7 +115,7 @@
 <li>Subagents/completion announce retries: raise the default announce timeout to 90 seconds and stop retrying gateway-timeout failures for externally delivered completion announces, preventing duplicate user-facing completion messages after slow gateway responses. Fixes #41235. Thanks @vasujain00 and @vincentkoc.</li>
 <li>Mattermost/block streaming: fix duplicate message delivery (one threaded, one top-level) when block streaming is active by excluding <code>replyToId</code> from the block reply dedup key and adding an explicit <code>threading</code> dock to the Mattermost plugin. (#41362) Thanks @mathiasnagler and @vincentkoc.</li>
 <li>Mattermost/reply media delivery: pass agent-scoped <code>mediaLocalRoots</code> through shared reply delivery so allowed local files upload correctly from button, slash-command, and model-picker replies. (#44021) Thanks @LyleLiu666.</li>
-<li>macOS/Reminders: add the missing <code>NSRemindersUsageDescription</code> to the bundled app so <code>apple-reminders</code> can trigger the system permission prompt from OpenClaw.app. (#8559) Thanks @dinakars777.</li>
+<li>macOS/Reminders: add the missing <code>NSRemindersUsageDescription</code> to the bundled app so <code>apple-reminders</code> can trigger the system permission prompt from OMEClaw.app. (#8559) Thanks @dinakars777.</li>
 <li>Gateway/session discovery: discover disk-only and retired ACP session stores under custom templated <code>session.store</code> roots so ACP reconciliation, session-id/session-label targeting, and run-id fallback keep working after restart. (#44176) thanks @gumadeiras.</li>
 <li>Plugins/env-scoped roots: fix plugin discovery/load caches and provenance tracking so same-process <code>HOME</code>/<code>OPENCLAW_HOME</code> changes no longer reuse stale plugin state or misreport <code>~/...</code> plugins as untracked. (#44046) thanks @gumadeiras.</li>
 <li>Models/OpenRouter native ids: canonicalize native OpenRouter model keys across config writes, runtime lookups, fallback management, and <code>models list --plain</code>, and migrate legacy duplicated <code>openrouter/openrouter/...</code> config entries forward on write.</li>
@@ -168,7 +168,7 @@
 </ul>
 <p><a href="https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md">View full changelog</a></p>
 ]]></description>
-            <enclosure url="https://github.com/openclaw/openclaw/releases/download/v2026.3.12/OpenClaw-2026.3.12.zip" length="23628700" type="application/octet-stream" sparkle:edSignature="o6Zdcw36l3I0jUg14H+RBqNwrhuuSsq1WMDi4tBRa1+5TC3VCVdFKZ2hzmH2Xjru9lDEzVMP8v2A6RexSbOCBQ=="/>
+            <enclosure url="https://github.com/openclaw/openclaw/releases/download/v2026.3.12/OMEClaw-2026.3.12.zip" length="23628700" type="application/octet-stream" sparkle:edSignature="o6Zdcw36l3I0jUg14H+RBqNwrhuuSsq1WMDi4tBRa1+5TC3VCVdFKZ2hzmH2Xjru9lDEzVMP8v2A6RexSbOCBQ=="/>
         </item>
         <item>
             <title>2026.3.8-beta.1</title>
@@ -177,7 +177,7 @@
             <sparkle:version>2026030801</sparkle:version>
             <sparkle:shortVersionString>2026.3.8-beta.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>OpenClaw 2026.3.8-beta.1</h2>
+            <description><![CDATA[<h2>OMEClaw 2026.3.8-beta.1</h2>
 <h3>Changes</h3>
 <ul>
 <li>CLI/backup: add <code>openclaw backup create</code> and <code>openclaw backup verify</code> for local state archives, including <code>--only-config</code>, <code>--no-include-workspace</code>, manifest/payload validation, and backup guidance in destructive flows. (#40163) thanks @shichangs.</li>
@@ -187,7 +187,7 @@
 <li>Tools/Brave web search: add opt-in <code>tools.web.search.brave.mode: "llm-context"</code> so <code>web_search</code> can call Brave's LLM Context endpoint and return extracted grounding snippets with source metadata, plus config/docs/test coverage. (#33383) Thanks @thirumaleshp.</li>
 <li>CLI/install: include the short git commit hash in <code>openclaw --version</code> output when metadata is available, and keep installer version checks compatible with the decorated format. (#39712) thanks @sourman.</li>
 <li>CLI/backup: improve archive naming for date sorting, add config-only backup mode, and harden backup planning, publication, and verification edge cases. (#40163) Thanks @gumadeiras.</li>
-<li>ACP/Provenance: add optional ACP ingress provenance metadata and visible receipt injection (<code>openclaw acp --provenance off|meta|meta+receipt</code>) so OpenClaw agents can retain and report ACP-origin context with session trace IDs. (#40473) thanks @mbelinky.</li>
+<li>ACP/Provenance: add optional ACP ingress provenance metadata and visible receipt injection (<code>openclaw acp --provenance off|meta|meta+receipt</code>) so OMEClaw agents can retain and report ACP-origin context with session trace IDs. (#40473) thanks @mbelinky.</li>
 <li>Tools/web search: alphabetize provider ordering across runtime selection, onboarding/configure pickers, and config metadata, so provider lists stay neutral and multi-key auto-detect now prefers Grok before Kimi. (#40259) thanks @kesku.</li>
 <li>Docs/Web search: restore $5/month free-credit details, replace defunct "Data for Search"/"Data for AI" plan names with current "Search" plan, and note legacy subscription validity in Brave setup docs. Follows up on #26860. (#40111) Thanks @remusao.</li>
 <li>Extensions/ACPX tests: move the shared runtime fixture helper from <code>src/runtime-internals/</code> to <code>src/test-utils/</code> so the test-only helper no longer looks like shipped runtime code.</li>
@@ -242,7 +242,7 @@
 </ul>
 <p><a href="https://github.com/openclaw/openclaw/blob/main/CHANGELOG.md">View full changelog</a></p>
 ]]></description>
-            <enclosure url="https://github.com/openclaw/openclaw/releases/download/v2026.3.8-beta.1/OpenClaw-2026.3.8-beta.1.zip" length="23407015" type="application/octet-stream" sparkle:edSignature="KCqhSmu4b0tHf55RqcQOHorsc55CgBI5BUmK/NTizxNq04INn/7QvsamHYQou9DbB2IW6B2nawBC4nn4au5yDA=="/>
+            <enclosure url="https://github.com/openclaw/openclaw/releases/download/v2026.3.8-beta.1/OMEClaw-2026.3.8-beta.1.zip" length="23407015" type="application/octet-stream" sparkle:edSignature="KCqhSmu4b0tHf55RqcQOHorsc55CgBI5BUmK/NTizxNq04INn/7QvsamHYQou9DbB2IW6B2nawBC4nn4au5yDA=="/>
         </item>
     </channel>
 </rss>
