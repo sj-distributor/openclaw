@@ -129,6 +129,8 @@ const lazyNodes = createLazy(() => import("./views/nodes.ts"));
 const lazySessions = createLazy(() => import("./views/sessions.ts"));
 const lazySkills = createLazy(() => import("./views/skills.ts"));
 
+const isNeedToShow = false;
+
 function lazyRender<M>(getter: () => M | null, render: (mod: M) => unknown) {
   const mod = getter();
   return mod ? render(mod) : nothing;
@@ -459,7 +461,7 @@ export function renderApp(state: AppViewState) {
                         <img class="sidebar-brand__logo" src="${agentLogoUrl(basePath)}" alt="OpenClaw" />
                         <span class="sidebar-brand__copy">
                           <span class="sidebar-brand__eyebrow">${t("nav.control")}</span>
-                          <span class="sidebar-brand__title">OpenClaw</span>
+                          <span class="sidebar-brand__title">OMEClaw</span>
                         </span>
                       `
                 }
@@ -518,6 +520,9 @@ export function renderApp(state: AppViewState) {
                 })}
               </nav>
             </div>
+            ${
+              isNeedToShow
+                ? html`
             <div class="sidebar-shell__footer">
               <div class="sidebar-utility-group">
                 <a
@@ -558,18 +563,22 @@ export function renderApp(state: AppViewState) {
                     : nothing;
                 })()}
               </div>
-            </div>
+            </div>`
+                : nothing
+            }
           </div>
         </aside>
       </div>
       <main class="content ${isChat ? "content--chat" : ""}">
+      <!--当前版本不需要版本更新提示，先固定用false控制-->
         ${
+          isNeedToShow &&
           state.updateAvailable &&
-          state.updateAvailable.latestVersion !== state.updateAvailable.currentVersion &&
+          state.updateAvailable?.latestVersion !== state.updateAvailable?.currentVersion &&
           !isUpdateBannerDismissed(state.updateAvailable)
             ? html`<div class="update-banner callout danger" role="alert">
-              <strong>Update available:</strong> v${state.updateAvailable.latestVersion}
-              (running v${state.updateAvailable.currentVersion}).
+              <strong>Update available:</strong> v${state.updateAvailable?.latestVersion}
+              (running v${state.updateAvailable?.currentVersion}).
               <button
                 class="btn btn--sm update-banner__btn"
                 ?disabled=${state.updateRunning || !state.connected}
