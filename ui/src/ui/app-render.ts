@@ -306,6 +306,7 @@ export function renderApp(state: AppViewState) {
         </div>
       </aside>
       <main class="content ${isChat ? "content--chat" : ""}">
+      <!--当前版本不需要版本更新提示，先固定用false控制-->
         ${
           availableUpdate
             ? html`<div class="update-banner callout danger" role="alert">
