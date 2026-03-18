@@ -54,7 +54,7 @@ describe("GatewayClient", () => {
     try {
       await fs.writeFile(path.join(tmp, "index.html"), params.indexHtml ?? "<html></html>\n");
       if (typeof params.faviconSvg === "string") {
-        await fs.writeFile(path.join(tmp, "favicon.svg"), params.faviconSvg);
+        await fs.writeFile(path.join(tmp, "omeclaw.png"), params.faviconSvg);
       }
       await run(tmp);
     } finally {
@@ -76,7 +76,7 @@ describe("GatewayClient", () => {
     await withControlUiRoot({ faviconSvg: "<svg/>" }, async (tmp) => {
       const { res } = makeControlUiResponse();
       const handled = handleControlUiHttpRequest(
-        { url: "/webchat/favicon.svg", method: "GET" } as IncomingMessage,
+        { url: "/webchat/omeclaw.png", method: "GET" } as IncomingMessage,
         res,
         { root: { kind: "resolved", path: tmp } },
       );
@@ -89,7 +89,7 @@ describe("GatewayClient", () => {
     await withControlUiRoot({}, async (tmp) => {
       const { res } = makeControlUiResponse();
       const handled = handleControlUiHttpRequest(
-        { url: "/webchat/favicon.svg?v=1", method: "GET" } as IncomingMessage,
+        { url: "/webchat/omeclaw.png?v=1", method: "GET" } as IncomingMessage,
         res,
         { root: { kind: "resolved", path: tmp } },
       );
@@ -115,7 +115,7 @@ describe("GatewayClient", () => {
     await withControlUiRoot({}, async (tmp) => {
       const { res } = makeControlUiResponse();
       const handled = handleControlUiHttpRequest(
-        { url: "/webchat/favicon.svg", method: "HEAD" } as IncomingMessage,
+        { url: "/webchat/omeclaw.png", method: "HEAD" } as IncomingMessage,
         res,
         { root: { kind: "resolved", path: tmp } },
       );
