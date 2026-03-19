@@ -25,6 +25,16 @@ export type ChatChannelMeta = ChannelMeta;
 const WEBSITE_URL = "https://openclaw.ai";
 
 const CHAT_CHANNEL_META: Record<ChatChannelId, ChannelMeta> = {
+  omelink: {
+    id: "omelink",
+    label: "Omelink",
+    selectionLabel: "Omelink",
+    detailLabel: "Omelink",
+    docsPath: "/channels/omelink",
+    docsLabel: "omelink",
+    blurb: "Omelink messaging channel.",
+    systemImage: "network",
+  },
   telegram: {
     id: "telegram",
     label: "Telegram",
@@ -107,16 +117,6 @@ const CHAT_CHANNEL_META: Record<ChatChannelId, ChannelMeta> = {
     docsLabel: "imessage",
     blurb: "this is still a work in progress.",
     systemImage: "message.fill",
-  },
-  omelink: {
-    id: "omelink",
-    label: "Omelink",
-    selectionLabel: "Omelink",
-    detailLabel: "Omelink",
-    docsPath: "/channels/omelink",
-    docsLabel: "omelink",
-    blurb: "Omelink messaging channel.",
-    systemImage: "network",
   },
 };
 

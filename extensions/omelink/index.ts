@@ -1,16 +1,16 @@
-import type { OpenClawPluginApi } from "openclaw/plugin-sdk/omelink";
-import { emptyPluginConfigSchema } from "openclaw/plugin-sdk/omelink";
-import { omelinkPlugin } from "./src/channel.js";
-import { setOmelinkRuntime } from "./src/runtime.js";
+import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
+import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
+import { omelinkChannel } from "./src/channel.ts";
+import { setOmelinkRuntime } from "./src/runtime.ts";
 
 const plugin = {
   id: "omelink",
-  name: "Omelink",
-  description: "Omelink channel plugin",
+  description: "Omelink channel plugin for OpenClaw",
   configSchema: emptyPluginConfigSchema(),
   register(api: OpenClawPluginApi) {
     setOmelinkRuntime(api.runtime);
-    api.registerChannel({ plugin: omelinkPlugin });
+
+    api.registerChannel({ plugin: omelinkChannel });
   },
 };
 
