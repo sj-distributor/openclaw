@@ -220,6 +220,8 @@ export function renderApp(state: AppViewState) {
       ? rawDeliveryToSuggestions.filter((value) => isHttpUrl(value))
       : rawDeliveryToSuggestions;
 
+  const isNeedToShow = false;
+
   return html`
     <div class="shell ${isChat ? "shell--chat" : ""} ${chatFocus ? "shell--chat-focus" : ""} ${state.settings.navCollapsed ? "shell--nav-collapsed" : ""} ${state.onboarding ? "shell--onboarding" : ""}">
       <header class="topbar">
@@ -238,10 +240,10 @@ export function renderApp(state: AppViewState) {
           </button>
           <div class="brand">
             <div class="brand-logo">
-              <img src=${basePath ? `${basePath}/favicon.svg` : "/favicon.svg"} alt="OpenClaw" />
+              <img src=${basePath ? `${basePath}/omeclaw.png` : "/omeclaw.png"} alt="OMEClaw" />
             </div>
             <div class="brand-text">
-              <div class="brand-title">OPENCLAW</div>
+              <div class="brand-title">OMEClaw</div>
               <div class="brand-sub">Gateway Dashboard</div>
             </div>
           </div>
@@ -287,7 +289,11 @@ export function renderApp(state: AppViewState) {
             </div>
           `;
         })}
-        <div class="nav-group nav-group--links">
+         <!--当前版本不需要版本更新提示，先固定用false控制-->
+        ${
+          isNeedToShow
+            ? html`
+          <div class="nav-group nav-group--links">
           <div class="nav-label nav-label--static">
             <span class="nav-label__text">${t("common.resources")}</span>
           </div>
@@ -304,11 +310,14 @@ export function renderApp(state: AppViewState) {
             </a>
           </div>
         </div>
+          `
+            : nothing
+        }
       </aside>
       <main class="content ${isChat ? "content--chat" : ""}">
       <!--当前版本不需要版本更新提示，先固定用false控制-->
         ${
-          availableUpdate
+          isNeedToShow && availableUpdate
             ? html`<div class="update-banner callout danger" role="alert">
               <strong>Update available:</strong> v${availableUpdate.latestVersion}
               (running v${availableUpdate.currentVersion}).
