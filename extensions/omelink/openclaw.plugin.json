@@ -1,7 +1,9 @@
 {
   "id": "omelink",
+  "description": "Omelink plugin for OpenClaw",
+  "version": "2026.3.16",
+  "main": "./index.ts",
   "channels": ["omelink"],
-  "skills": [],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
