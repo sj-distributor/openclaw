@@ -172,7 +172,7 @@ export const signalSetupWizard: ChannelSetupWizard = {
   completionNote: {
     title: "Signal next steps",
     lines: [
-      'Link device with: signal-cli link -n "OpenClaw"',
+      'Link device with: signal-cli link -n "OMEClaw"',
       "Scan QR in Signal -> Linked Devices",
       `Then run: ${formatCliCommand("openclaw gateway call channels.status --params '{\"probe\":true}'")}`,
       `Docs: ${formatDocsLink("/signal", "signal")}`,

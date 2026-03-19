@@ -27,7 +27,7 @@ import { listSlackAccountIds, resolveSlackAccount, type ResolvedSlackAccount } f
 const channel = "slack" as const;
 
 function buildSlackManifest(botName: string) {
-  const safeName = botName.trim() || "OpenClaw";
+  const safeName = botName.trim() || "OMEClaw";
   const manifest = {
     display_information: {
       name: safeName,
@@ -95,7 +95,7 @@ function buildSlackManifest(botName: string) {
   return JSON.stringify(manifest, null, 2);
 }
 
-function buildSlackSetupLines(botName = "OpenClaw"): string[] {
+function buildSlackSetupLines(botName = "OMEClaw"): string[] {
   return [
     "1) Slack API -> Create App -> From scratch or From manifest (with the JSON below)",
     "2) Add Socket Mode + enable it to get the app-level token (xapp-...)",
