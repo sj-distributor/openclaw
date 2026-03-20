@@ -63,7 +63,7 @@ class OmelinkServer {
     await new Promise<void>((resolve, reject) => {
       this.server!.once("error", reject);
 
-      this.server!.listen(port, "127.0.0.1", () => {
+      this.server!.listen(port, "0.0.0.0", () => {
         this.server!.removeListener("error", reject);
         resolve();
       });
