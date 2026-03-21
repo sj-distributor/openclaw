@@ -50,6 +50,27 @@ export const omelinkChannel: ChannelPlugin<OmelinkResolvedAccount> = {
         account,
         to: String(to),
         text: String(text ?? ""),
+        type: "text",
+      });
+
+      return {
+        channel: "omelink",
+        messageId: result.messageId,
+        conversationId: String(to),
+      };
+    },
+    sendMedia: async ({ to, text, mediaUrl, accountId, cfg }) => {
+      const account = resolveAccount(cfg, accountId);
+      if (!account.enabled) {
+        throw new Error(`omelink account "${account.accountId}" is disabled`);
+      }
+
+      const result = await sendOutboundMessage({
+        account,
+        to: String(to),
+        text: String(text ?? ""),
+        type: "image",
+        mediaUrl: mediaUrl ? String(mediaUrl) : undefined,
       });
 
       return {

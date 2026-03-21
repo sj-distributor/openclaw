@@ -45,6 +45,8 @@ export type OmelinkOutboundMessageParams = {
   account: OmelinkResolvedAccount;
   to: string;
   text: string;
+  type?: "text" | "image" | "audio" | "video" | "file";
+  mediaUrl?: string;
   messageId?: string;
   conversationId?: string;
 };

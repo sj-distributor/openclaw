@@ -92,36 +92,65 @@ export const handleInbound = async (params: {
   };
 
   await dispatcher({
-    ctx: inboundCtx,
-    cfg: params.ctx.cfg,
-    replyResolver: undefined,
-    dispatcherOptions: {
-      deliver: async (replyPayload: unknown) => {
-        const textPayload =
-          typeof replyPayload === "string"
-            ? replyPayload
-            : String(
-                (replyPayload as Record<string, unknown>)?.text ??
-                  (replyPayload as Record<string, unknown>)?.body ??
-                  "",
-              );
+      ctx: inboundCtx,
+      cfg: params.ctx.cfg,
+      replyResolver: undefined,
+      dispatcherOptions: {
+        deliver: async (replyPayload: unknown) => {
+          let textPayload = "";
+          let mediaList: string[] = [];
 
-        const replyText = textPayload.trim();
-        if (!replyText || replyText === "NO_REPLY" || replyText.endsWith("NO_REPLY")) {
-          return;
-        }
+          if (typeof replyPayload === "string") {
+            textPayload = replyPayload;
+          } else if (replyPayload && typeof replyPayload === "object") {
+            const rp = replyPayload as Record<string, unknown>;
+            textPayload = String(rp.text ?? rp.body ?? "");
+            
+            if (rp.mediaUrls && Array.isArray(rp.mediaUrls) && rp.mediaUrls.length > 0) {
+              mediaList = rp.mediaUrls.map(String);
+            } else if (rp.mediaUrl && typeof rp.mediaUrl === "string") {
+              mediaList = [rp.mediaUrl];
+            }
+          }
 
-        await sendOutboundMessage({
-          account: params.account,
-          to,
-          text: replyText,
-          messageId,
-          conversationId,
-        });
+          const replyText = textPayload.trim();
+          const hasText = Boolean(replyText && replyText !== "NO_REPLY" && !replyText.endsWith("NO_REPLY"));
+          const hasMedia = mediaList.length > 0;
+
+          if (!hasText && !hasMedia) {
+            return;
+          }
+
+          // 发送文本消息
+          if (hasText) {
+            await sendOutboundMessage({
+              account: params.account,
+              to,
+              text: replyText,
+              type: "text",
+              messageId,
+              conversationId,
+            });
+          }
+
+          // 发送媒体消息
+          if (hasMedia) {
+            for (const url of mediaList) {
+              await sendOutboundMessage({
+                account: params.account,
+                to,
+                text: "", // 官方实现通常图片和文本分离发送，这里文本置空
+                type: "image",
+                mediaUrl: url,
+                messageId,
+                conversationId,
+              });
+            }
+          }
+        },
+        onError: (err: unknown) => {
+          params.ctx.log?.error?.(`[omelink:${params.account.accountId}] ${toErrorMessage(err)}`);
+        },
       },
-      onError: (err: unknown) => {
-        params.ctx.log?.error?.(`[omelink:${params.account.accountId}] ${toErrorMessage(err)}`);
-      },
-    },
-  });
+    });
 };
