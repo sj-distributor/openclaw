@@ -17,13 +17,28 @@ export function applyOnboardingLocalWorkspaceConfig(
       : [
           {
             id: "main",
-            name: "OpenClaw",
+            name: "OMEClaw",
             default: true,
             identity: {
-              name: "OpenClaw",
+              name: "OMEClaw",
               emoji: "🦞",
             },
             workspace: workspaceDir,
+            tools: {
+              alsoAllow: [
+                "read",
+                "apply_patch",
+                "process",
+                "sessions_spawn",
+                "subagents",
+                "gateway",
+                "cron",
+                "nodes",
+                "agents_list",
+                "image",
+                "tts",
+              ],
+            },
           },
           {
             id: "accounting-kid",
