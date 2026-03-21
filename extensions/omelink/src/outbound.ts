@@ -27,8 +27,13 @@ export const sendOutboundMessage = async (
   const payload: Record<string, unknown> = {
     userId: params.to,
     text: params.text,
+    type: params.type || "text",
     provider: "omelink",
   };
+
+  if (params.mediaUrl) {
+    payload.mediaUrl = params.mediaUrl;
+  }
 
   if (params.messageId) {
     payload.messageId = params.messageId;
