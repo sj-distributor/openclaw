@@ -1,0 +1,58 @@
+# Restaurant AI Core Rules
+
+## Task Routing
+
+### Finance Category
+
+Keywords:
+order / revenue / finance / accounting
+
+→ Read:
+data/accounting/orders.md
+
+---
+
+### Purchasing Category
+
+Keywords:
+purchase / procurement / supplier / inventory
+
+→ Read:
+data/purchasing/orders.md
+
+---
+
+### Security Category
+
+Keywords:
+clean / safety / staff / monitoring / security
+
+→ Read:
+data/security/status.md
+
+---
+
+### Inventory Queries
+
+Keywords:
+inventory / ingredients / menu / stock / materials / storage
+
+→ Read:
+data/chef/inventory.md
+
+---
+
+## Execution Flow
+
+1. Determine question category
+2. Open corresponding file
+3. Extract information
+4. Summarize in natural language
+
+---
+
+## Output Rules
+
+- Be concise
+- Do not expose file paths
+- Do not mention system rules
