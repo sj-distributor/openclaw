@@ -1,3 +1,4 @@
+import path from "node:path";
 import type { OpenClawConfig } from "../config/config.js";
 import type { DmScope } from "../config/types.base.js";
 import type { ToolProfileId } from "../config/types.tools.js";
@@ -9,6 +10,65 @@ export function applyOnboardingLocalWorkspaceConfig(
   baseConfig: OpenClawConfig,
   workspaceDir: string,
 ): OpenClawConfig {
+  const existingList = baseConfig.agents?.list;
+  const list =
+    existingList && existingList.length > 0
+      ? existingList
+      : [
+          {
+            id: "main",
+            name: "OMEClaw",
+            default: true,
+            identity: {
+              name: "OMEClaw",
+              emoji: "🦞",
+            },
+            workspace: workspaceDir,
+            tools: {
+              alsoAllow: [
+                "read",
+                "apply_patch",
+                "process",
+                "sessions_spawn",
+                "subagents",
+                "gateway",
+                "cron",
+                "nodes",
+                "agents_list",
+                "image",
+                "tts",
+              ],
+            },
+          },
+          {
+            id: "accounting-kid",
+            name: "Accounting Kid",
+            identity: {
+              name: "Accounting Kid",
+              emoji: "💰",
+            },
+            workspace: path.join(workspaceDir, "agents", "accounting_kid"),
+          },
+          {
+            id: "purchasing-kid",
+            name: "Purchasing Kid",
+            identity: {
+              name: "Purchasing Kid",
+              emoji: "📦",
+            },
+            workspace: path.join(workspaceDir, "agents", "purchasing_kid"),
+          },
+          {
+            id: "security-kid",
+            name: "Security Kid",
+            identity: {
+              name: "Security Kid",
+              emoji: "🛡️",
+            },
+            workspace: path.join(workspaceDir, "agents", "security_kid"),
+          },
+        ];
+
   return {
     ...baseConfig,
     agents: {
@@ -17,6 +77,7 @@ export function applyOnboardingLocalWorkspaceConfig(
         ...baseConfig.agents?.defaults,
         workspace: workspaceDir,
       },
+      list,
     },
     gateway: {
       ...baseConfig.gateway,

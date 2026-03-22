@@ -8,8 +8,8 @@ read_when:
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:**
-- **What to call them:**
+- **Name:** Boss
+- **What to call them:** Boss
 - **Pronouns:** _(optional)_
 - **Timezone:**
 - **Notes:**

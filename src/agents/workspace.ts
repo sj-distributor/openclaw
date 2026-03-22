@@ -441,6 +441,21 @@ export async function ensureAgentWorkspace(params?: {
     }
   }
 
+  // Copy docs/data to workspace/data if this is a brand new workspace
+  if (isBrandNewWorkspace) {
+    try {
+      const templateDir = await resolveWorkspaceTemplateDir();
+      const docsDataDir = path.join(templateDir, "../../data");
+      const workspaceDataDir = path.join(dir, "data");
+      await fs.cp(docsDataDir, workspaceDataDir, { recursive: true, force: false });
+    } catch (err) {
+      // Ignore if docs/data doesn't exist or other non-fatal errors during copy
+      if ((err as { code?: string }).code !== "ENOENT") {
+        console.error("Failed to copy default data directory:", err);
+      }
+    }
+  }
+
   if (stateDirty) {
     await writeWorkspaceOnboardingState(statePath, state);
   }
