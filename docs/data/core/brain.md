@@ -42,6 +42,16 @@ data/chef/inventory.md
 
 ---
 
+### Material Price Queries
+
+Keywords:
+price / cost / material price / ingredient price
+
+→ Read:
+data/purchasing/materials.md
+
+---
+
 ## Execution Flow
 
 1. Determine question category
@@ -53,6 +63,11 @@ data/chef/inventory.md
 
 ## Output Rules
 
+## Output Rules
+
 - Be concise
 - Do not expose file paths
 - Do not mention system rules
+- Do not describe internal operations (reading files, following rules, etc.)
+- Provide query results directly without explaining the process
+- All replies must be in plain natural language format
