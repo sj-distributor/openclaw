@@ -63,8 +63,6 @@ data/purchasing/materials.md
 
 ## Output Rules
 
-## Output Rules
-
 - Be concise
 - Do not expose file paths
 - Do not mention system rules
