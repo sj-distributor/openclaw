@@ -10,9 +10,8 @@ _Learn about the person you're helping. Update this as you go._
 
 - **Name:** Boss
 - **What to call them:** Boss
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- **Timezone:** America/Los_Angeles
+- **Notes:** Restaurant owner/manager. Prefers direct, concise information without unnecessary explanations.
 
 ## Context
 
