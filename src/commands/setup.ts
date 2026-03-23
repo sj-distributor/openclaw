@@ -41,6 +41,66 @@ export async function setupCommand(
 
   const workspace = desiredWorkspace ?? defaults.workspace ?? DEFAULT_AGENT_WORKSPACE_DIR;
 
+  const existingList = cfg.agents?.list;
+  const list =
+    existingList && existingList.length > 0
+      ? existingList
+      : [
+          {
+            id: "main",
+            name: "Manager",
+            default: true,
+            identity: {
+              name: "Manager",
+              emoji: "M",
+              avatar: "https://assistant-fjtj2by.testomenow.com/openclaw/omeclaw.png",
+            },
+            workspace: workspace,
+            tools: {
+              alsoAllow: [
+                "read",
+                "apply_patch",
+                "process",
+                "sessions_spawn",
+                "subagents",
+                "gateway",
+                "cron",
+                "nodes",
+                "agents_list",
+                "image",
+                "tts",
+              ],
+            },
+          },
+          {
+            id: "accounting-kid",
+            name: "Accounting Kid",
+            identity: {
+              name: "Accounting Kid",
+              emoji: "💰",
+            },
+            workspace: `${workspace}/agents/accounting_kid`,
+          },
+          {
+            id: "purchasing-kid",
+            name: "Purchasing Kid",
+            identity: {
+              name: "Purchasing Kid",
+              emoji: "📦",
+            },
+            workspace: `${workspace}/agents/purchasing_kid`,
+          },
+          {
+            id: "security-kid",
+            name: "Security Kid",
+            identity: {
+              name: "Security Kid",
+              emoji: "🛡️",
+            },
+            workspace: `${workspace}/agents/security_kid`,
+          },
+        ];
+
   const next: OpenClawConfig = {
     ...cfg,
     agents: {
@@ -49,6 +109,7 @@ export async function setupCommand(
         ...defaults,
         workspace,
       },
+      list,
     },
   };
 
