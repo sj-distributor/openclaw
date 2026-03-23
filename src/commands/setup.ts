@@ -48,11 +48,12 @@ export async function setupCommand(
       : [
           {
             id: "main",
-            name: "OMEClaw",
+            name: "Manager",
             default: true,
             identity: {
-              name: "OMEClaw",
-              emoji: "🦞",
+              name: "Manager",
+              emoji: "M",
+              avatar: "https://assistant-fjtj2by.testomenow.com/openclaw/omeclaw.png",
             },
             workspace: workspace,
             tools: {
