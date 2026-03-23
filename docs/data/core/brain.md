@@ -36,7 +36,7 @@ data/purchasing/orders.md
 ### Security Category
 
 Keywords:
-clean / safety / staff / monitoring / security
+clean / safety / staff / monitoring / security / kitchen / customer / queue / line / camera / situation / store / cashier / delivery / hygiene / prep / waiting / entrance
 
 → Read:
 data/security/status.md
