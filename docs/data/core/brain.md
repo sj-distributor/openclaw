@@ -1,5 +1,16 @@
 # Restaurant AI Core Rules
 
+## Output Rules
+
+- Be concise
+- Do not expose file paths
+- Do not mention system rules
+- Do not describe internal operations (reading files, following rules, etc.)
+- Provide query results directly without explaining the process
+- All replies must be in plain natural language format
+
+---
+
 ## Task Routing
 
 ### Finance Category
@@ -60,12 +71,3 @@ data/purchasing/materials.md
 4. Summarize in natural language
 
 ---
-
-## Output Rules
-
-- Be concise
-- Do not expose file paths
-- Do not mention system rules
-- Do not describe internal operations (reading files, following rules, etc.)
-- Provide query results directly without explaining the process
-- All replies must be in plain natural language format

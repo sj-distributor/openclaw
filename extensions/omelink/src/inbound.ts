@@ -91,66 +91,87 @@ export const handleInbound = async (params: {
     },
   };
 
+  const stripReasoning = (text: string): string => {
+    if (!text) return text;
+
+    return (
+      text
+        // 删除 <think>...</think>
+        .replace(/<think>[\s\S]*?<\/think>/gi, "")
+        // 删除 <analysis>...</analysis>
+        .replace(/<analysis>[\s\S]*?<\/analysis>/gi, "")
+        // 删除 Reasoning: 段
+        .replace(/(^|\n)\s*Reasoning:[\s\S]*?(?=\n\S|$)/gi, "")
+        // 删除 Thinking: 段
+        .replace(/(^|\n)\s*Thinking:[\s\S]*?(?=\n\S|$)/gi, "")
+        .trim()
+    );
+  };
+
   await dispatcher({
-      ctx: inboundCtx,
-      cfg: params.ctx.cfg,
-      replyResolver: undefined,
-      dispatcherOptions: {
-        deliver: async (replyPayload: unknown) => {
-          let textPayload = "";
-          let mediaList: string[] = [];
+    ctx: inboundCtx,
+    cfg: params.ctx.cfg,
+    replyResolver: undefined,
+    dispatcherOptions: {
+      deliver: async (replyPayload: unknown) => {
+        let textPayload = "";
+        let mediaList: string[] = [];
 
-          if (typeof replyPayload === "string") {
-            textPayload = replyPayload;
-          } else if (replyPayload && typeof replyPayload === "object") {
-            const rp = replyPayload as Record<string, unknown>;
-            textPayload = String(rp.text ?? rp.body ?? "");
-            
-            if (rp.mediaUrls && Array.isArray(rp.mediaUrls) && rp.mediaUrls.length > 0) {
-              mediaList = rp.mediaUrls.map(String);
-            } else if (rp.mediaUrl && typeof rp.mediaUrl === "string") {
-              mediaList = [rp.mediaUrl];
-            }
+        if (typeof replyPayload === "string") {
+          textPayload = replyPayload;
+        } else if (replyPayload && typeof replyPayload === "object") {
+          const rp = replyPayload as Record<string, unknown>;
+
+          // ✅ 优先 final
+          textPayload = String(rp.final ?? rp.text ?? rp.body ?? "");
+
+          if (rp.mediaUrls && Array.isArray(rp.mediaUrls)) {
+            mediaList = rp.mediaUrls.map(String);
+          } else if (typeof rp.mediaUrl === "string") {
+            mediaList = [rp.mediaUrl];
           }
+        }
 
-          const replyText = textPayload.trim();
-          const hasText = Boolean(replyText && replyText !== "NO_REPLY" && !replyText.endsWith("NO_REPLY"));
-          const hasMedia = mediaList.length > 0;
+        const replyText = stripReasoning(textPayload.trim());
+        const hasText = Boolean(
+          replyText && replyText !== "NO_REPLY" && !replyText.endsWith("NO_REPLY"),
+        );
+        const hasMedia = mediaList.length > 0;
 
-          if (!hasText && !hasMedia) {
-            return;
-          }
+        if (!hasText && !hasMedia) {
+          return;
+        }
 
-          // 发送文本消息
-          if (hasText) {
+        // 发送文本消息
+        if (hasText) {
+          await sendOutboundMessage({
+            account: params.account,
+            to,
+            text: replyText,
+            type: "text",
+            messageId,
+            conversationId,
+          });
+        }
+
+        // 发送媒体消息
+        if (hasMedia) {
+          for (const url of mediaList) {
             await sendOutboundMessage({
               account: params.account,
               to,
-              text: replyText,
-              type: "text",
+              text: "", // 官方实现通常图片和文本分离发送，这里文本置空
+              type: "image",
+              mediaUrl: url,
               messageId,
               conversationId,
             });
           }
-
-          // 发送媒体消息
-          if (hasMedia) {
-            for (const url of mediaList) {
-              await sendOutboundMessage({
-                account: params.account,
-                to,
-                text: "", // 官方实现通常图片和文本分离发送，这里文本置空
-                type: "image",
-                mediaUrl: url,
-                messageId,
-                conversationId,
-              });
-            }
-          }
-        },
-        onError: (err: unknown) => {
-          params.ctx.log?.error?.(`[omelink:${params.account.accountId}] ${toErrorMessage(err)}`);
-        },
+        }
       },
-    });
+      onError: (err: unknown) => {
+        params.ctx.log?.error?.(`[omelink:${params.account.accountId}] ${toErrorMessage(err)}`);
+      },
+    },
+  });
 };
