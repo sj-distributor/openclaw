@@ -38,7 +38,7 @@ Keywords:
 inventory / ingredients / menu / stock / materials / storage
 
 → Read:
-data/chef/inventory.md
+data/purchasing/inventory.md
 
 ---
 
