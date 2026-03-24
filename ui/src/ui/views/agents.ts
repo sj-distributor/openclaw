@@ -18,15 +18,11 @@ import { renderAgentTools, renderAgentSkills } from "./agents-panels-tools-skill
 import {
   agentBadgeText,
   buildAgentContext,
-  buildModelOptions,
   normalizeAgentLabel,
-  normalizeModelValue,
   parseFallbackList,
   resolveAgentConfig,
   resolveAgentEmoji,
   resolveEffectiveModelFallbacks,
-  resolveModelLabel,
-  resolveModelPrimary,
 } from "./agents-utils.ts";
 
 export type AgentsPanel = "overview" | "files" | "tools" | "skills" | "channels" | "cron";
@@ -380,15 +376,23 @@ function renderAgentOverview(params: {
     agentFilesList && agentFilesList.agentId === agent.id ? agentFilesList.workspace : null;
   const workspace =
     workspaceFromFiles || config.entry?.workspace || config.defaults?.workspace || "default";
-  const model = config.entry?.model
-    ? resolveModelLabel(config.entry?.model)
-    : resolveModelLabel(config.defaults?.model);
-  const defaultModel = resolveModelLabel(config.defaults?.model);
-  const modelPrimary =
-    resolveModelPrimary(config.entry?.model) || (model !== "-" ? normalizeModelValue(model) : null);
-  const defaultPrimary =
-    resolveModelPrimary(config.defaults?.model) ||
-    (defaultModel !== "-" ? normalizeModelValue(defaultModel) : null);
+
+  // TODO: Temporarily
+  const model = "metis-chat";
+  // const defaultModel = "metis-chat";
+  const modelPrimary = "metis-chat";
+  const defaultPrimary = "metis-chat";
+
+  // const model = config.entry?.model
+  //   ? resolveModelLabel(config.entry?.model)
+  //   : resolveModelLabel(config.defaults?.model);
+  // const defaultModel = resolveModelLabel(config.defaults?.model);
+  // const modelPrimary =
+  //   resolveModelPrimary(config.entry?.model) || (model !== "-" ? normalizeModelValue(model) : null);
+  // const defaultPrimary =
+  //   resolveModelPrimary(config.defaults?.model) ||
+  //   (defaultModel !== "-" ? normalizeModelValue(defaultModel) : null);
+
   const effectivePrimary = modelPrimary ?? defaultPrimary ?? null;
   const modelFallbacks = resolveEffectiveModelFallbacks(
     config.entry?.model,
@@ -464,7 +468,7 @@ function renderAgentOverview(params: {
                       </option>
                     `
               }
-              ${buildModelOptions(configForm, effectivePrimary ?? undefined)}
+              <option value="metis-chat">metis-chat</option>
             </select>
           </label>
           <label class="field" style="min-width: 260px; flex: 1;">
