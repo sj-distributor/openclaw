@@ -73,28 +73,28 @@ export async function setupCommand(
             },
           },
           {
-            id: "accounting-kid",
-            name: "Accounting Kid",
+            id: "accounting-agent",
+            name: "Accounting Agent",
             identity: {
-              name: "Accounting Kid",
+              name: "Accounting Agent",
               emoji: "💰",
             },
             workspace: `${workspace}/agents/accounting_kid`,
           },
           {
-            id: "purchasing-kid",
-            name: "Purchasing Kid",
+            id: "purchasing-agent",
+            name: "Purchasing Agent",
             identity: {
-              name: "Purchasing Kid",
+              name: "Purchasing Agent",
               emoji: "📦",
             },
             workspace: `${workspace}/agents/purchasing_kid`,
           },
           {
-            id: "security-kid",
-            name: "Security Kid",
+            id: "security-agent",
+            name: "Security Agent",
             identity: {
-              name: "Security Kid",
+              name: "Security Agent",
               emoji: "🛡️",
             },
             workspace: `${workspace}/agents/security_kid`,
