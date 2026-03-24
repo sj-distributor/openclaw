@@ -59,6 +59,6 @@ Unit: LBS
   - Status: Normal
 
 - CUT (SLICED) B/L BUTT（切片无骨猪肉）
-  - Stock: 32 LBS
+  - Stock: 100 LBS
   - Daily Usage: 12 LBS
   - Status: Medium

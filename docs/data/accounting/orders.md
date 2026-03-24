@@ -1,71 +1,35 @@
 # Financial Order Data
 
-## Menu Price Reference
-
-### Bánh Mì (Vietnamese Sandwich) - $8.50 each
-
-1. Thịt nguội đặc biệt (Cold Cut)
-2. Heo nướng sả (Grilled Pork)
-3. Gà nướng (Grilled Chicken)
-4. Heo xíu ngũ vị hương (5-Spice Pork)
-5. Chay (Vegetarian) VEGAN
-6. Đậu hũ (Lemongrass Tofu) VEGAN
-
-### Gỏi Cuốn (Fresh Summer Rolls)
-
-- 3pc = $8.00
-- 5pc = $12.75
-
-11. Tôm (Shrimp)
-12. Heo nướng xả (Grilled Pork)
-13. Gà nướng xả nghệ (Grilled Chicken)
-14. Chay (Vegetarian) VEGAN
-15. Ngũ sắc (Fresh Veggies) VEGAN
-16. Đậu hũ (Lemongrass Tofu) VEGAN
-
-### Bún (Noodle Salad) - $11.95 each
-
-21. Heo nướng xả (Grilled Pork Noodle Salad)
-22. Gà nướng xả nghệ (Grilled Chicken Noodle Salad)
-23. Chay (Vegetarian Mix Noodle Salad) VEGAN
-24. Đậu hũ (Lemongrass Tofu Noodle Salad) VEGAN
-
-## Yesterday's Sales Summary
-
-- **Total Revenue:** $1,248.50
-- **Total Orders:** 42
-- **Average Order Value:** $29.73
-
-### Category Breakdown:
-
-- **Bánh Mì:** 18 orders × $8.50 = $153.00
-- **Gỏi Cuốn:** 15 orders (avg $10.38) = $155.70
-- **Bún:** 9 orders × $11.95 = $107.55
-
-### Payment Methods:
-
-- **Cash:** $749.10 (60%)
-- **Electronic:** $499.40 (40%)
-
-## Today's Sales Summary
-
-- **Total Revenue:** $586.25
-- **Total Orders:** 19
-- **Average Order Value:** $30.86
-
-### Category Breakdown:
-
-- **Bánh Mì:** 8 orders × $8.50 = $68.00
-- **Gỏi Cuốn:** 7 orders (avg $10.38) = $72.66
-- **Bún:** 4 orders × $11.95 = $47.80
-
-### Payment Methods:
-
-- **Cash:** $351.75 (60%)
-- **Electronic:** $234.50 (40%)
-
-## Best Selling Items (Yesterday)
-
-1. Bánh Mì #2 (Grilled Pork) - 7 orders
-2. Gỏi Cuốn #12 (Grilled Pork) - 6 orders
-3. Bún #21 (Grilled Pork Noodle Salad) - 5 orders
+| Date       | Total Sales | Orders | Cash    | Card     |
+| :--------- | :---------- | :----- | :------ | :------- |
+| 2026-03-01 | $3860.50    | 228    | $772.10 | $3088.40 |
+| 2026-03-02 | $4025.20    | 235    | $805.04 | $3220.16 |
+| 2026-03-03 | $3740.00    | 220    | $748.00 | $2992.00 |
+| 2026-03-04 | $3955.80    | 230    | $791.16 | $3164.64 |
+| 2026-03-05 | $4120.75    | 240    | $824.15 | $3296.60 |
+| 2026-03-06 | $3895.40    | 225    | $779.08 | $3116.32 |
+| 2026-03-07 | $4030.60    | 238    | $806.12 | $3224.48 |
+| 2026-03-08 | $3785.20    | 222    | $757.04 | $3028.16 |
+| 2026-03-09 | $3905.30    | 230    | $781.06 | $3124.24 |
+| 2026-03-10 | $4070.85    | 240    | $814.17 | $3256.68 |
+| 2026-03-11 | $3950.20    | 233    | $790.04 | $3160.16 |
+| 2026-03-12 | $3825.70    | 225    | $765.14 | $3060.56 |
+| 2026-03-13 | $4105.30    | 242    | $821.06 | $3284.24 |
+| 2026-03-14 | $3980.40    | 235    | $796.08 | $3184.32 |
+| 2026-03-15 | $3855.20    | 228    | $771.04 | $3084.16 |
+| 2026-03-16 | $4020.60    | 238    | $804.12 | $3216.48 |
+| 2026-03-17 | $3775.40    | 223    | $755.08 | $3020.32 |
+| 2026-03-18 | $3910.50    | 230    | $782.10 | $3128.40 |
+| 2026-03-19 | $4085.70    | 240    | $817.14 | $3268.56 |
+| 2026-03-20 | $3945.20    | 232    | $789.04 | $3156.16 |
+| 2026-03-21 | $3805.60    | 225    | $761.12 | $3044.48 |
+| 2026-03-22 | $4075.30    | 242    | $815.06 | $3260.24 |
+| 2026-03-23 | $3955.20    | 233    | $791.04 | $3164.16 |
+| 2026-03-24 | $3860.50    | 228    | $772.10 | $3088.40 |
+| 2026-03-25 | $4030.80    | 238    | $806.16 | $3224.64 |
+| 2026-03-26 | $3795.40    | 223    | $759.08 | $3036.32 |
+| 2026-03-27 | $3925.60    | 230    | $785.12 | $3140.48 |
+| 2026-03-28 | $4100.30    | 242    | $820.06 | $3280.24 |
+| 2026-03-29 | $3975.20    | 235    | $795.04 | $3180.16 |
+| 2026-03-30 | $3840.50    | 228    | $768.10 | $3072.40 |
+| 2026-03-31 | $4050.60    | 240    | $810.12 | $3240.48 |
