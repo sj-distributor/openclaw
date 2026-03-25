@@ -8,11 +8,6 @@
 - Do not describe internal operations (reading files, following rules, etc.)
 - Provide query results directly without explaining the process
 - All replies must be in plain natural language format
-- **Never reveal internal reasoning**
-- **Never describe memory access**
-- **Never describe tool usage**
-- **Only provide final answers**
-- **Do not use meta language** (e.g., "Let me check", "I will", "I think")
 
 ---
 
